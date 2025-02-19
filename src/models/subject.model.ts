@@ -7,9 +7,9 @@ const subjectSchema = new Schema<ISubject>(
       type: String,
       required: true,
     },
-    profession: {
+    semester: {
       type: Schema.Types.ObjectId,
-      ref: "Profession",
+      ref: "Semester",
       required: true,
     },
   },

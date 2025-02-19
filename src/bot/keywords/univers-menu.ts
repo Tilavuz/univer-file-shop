@@ -8,7 +8,6 @@ export const universMenu = async () => {
       return new InlineKeyboard();
     }
 
-    // **1. Tugmalarni yaratish va InlineKeyboard obyektiga qo‘shish**
     const keyboard = new InlineKeyboard();
     univers.forEach((univer) => {
       keyboard.text(univer.name, `univer_${univer._id}`).row();
