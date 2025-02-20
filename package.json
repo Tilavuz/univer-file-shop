@@ -10,13 +10,22 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "fs-extra": "^11.3.0",
     "grammy": "^1.35.0",
+    "mammoth": "^1.9.0",
     "mongoose": "^8.10.1",
+    "node-fetch": "^3.3.2",
+    "pdf-lib": "^1.17.1",
+    "pdf-poppler": "^0.2.1",
+    "pptx2pdf": "^1.0.10",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
-    "@types/express": "^5.0.0"
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/fs-extra": "^11.0.4"
   }
 }

@@ -8,7 +8,6 @@ export const paginationMenuNextPage = async (ctx: Context) => {
   );
   const page = paginationQuery.page + 1;
   const { messageText, keyboard } = await filesMenu({
-    ctx,
     subjectId: paginationQuery?.id,
     page,
   });
@@ -31,7 +30,6 @@ export const paginationMenuBackPage = async (ctx: Context) => {
   }
   const page = paginationQuery.page - 1;
   const { messageText, keyboard } = await filesMenu({
-    ctx,
     subjectId: paginationQuery?.id,
     page,
   });

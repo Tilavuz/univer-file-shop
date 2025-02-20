@@ -12,6 +12,10 @@ const userSchema = new Schema<IUser>(
       type: String,
       default: null,
     },
+    action: {
+      type: String,
+      default: null
+    }
   },
   { timestamps: true }
 );

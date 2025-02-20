@@ -3,11 +3,9 @@ import { FileModel } from "../../models/file.model";
 import { Subject } from "../../models/subject.model";
 
 export const filesMenu = async ({
-  ctx,
   page,
   subjectId,
 }: {
-  ctx: Context;
   page: number;
   subjectId: string;
 }) => {
@@ -22,7 +20,7 @@ export const filesMenu = async ({
     };
   }
 
-  const files = await FileModel.find({ subject: subjectId })
+  const files = await FileModel.find({ subject: subjectId, status: true })
     .skip(skip)
     .limit(limit);
 
@@ -56,9 +54,11 @@ export const filesMenu = async ({
     page,
   });
 
-  keyboard.text("👈", `back_page_${paginationQuery}`);
-  keyboard.text(`${page}/${totalPages}`);
-  keyboard.text("👉", `next_page_${paginationQuery}`);
+  if (totalPages > 1) {
+    keyboard.text("👈", `back_page_${paginationQuery}`);
+    keyboard.text(`${page}/${totalPages}`);
+    keyboard.text("👉", `next_page_${paginationQuery}`);
+  }
 
   return { messageText, keyboard };
 };

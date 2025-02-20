@@ -43,6 +43,18 @@ const fileSchema = new Schema<IFile>({
     type: String,
     default: null,
   },
+  price: {
+    type: Number,
+    default: null,
+  },
+  status: {
+    type: Boolean,
+    default: false,
+  },
+  sold: {
+    type: Number,
+    default: 0,
+  },
 });
 
 export const FileModel = model<IFile>("File", fileSchema);

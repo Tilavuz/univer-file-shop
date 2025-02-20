@@ -15,4 +15,7 @@ export interface IFile extends Document {
   subject: Types.ObjectId;
   user: Types.ObjectId;
   title: string;
+  price: number;
+  status: boolean;
+  sold: number;
 }

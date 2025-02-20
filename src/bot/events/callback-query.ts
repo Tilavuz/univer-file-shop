@@ -1,5 +1,9 @@
 import { facultyMenuAction } from "../actions/buttons/faculty-menu-action";
-import { paginationMenuBackPage, paginationMenuNextPage } from "../actions/buttons/pagination-menu-action";
+import { fileMenuAction } from "../actions/buttons/file-menu-action";
+import {
+  paginationMenuBackPage,
+  paginationMenuNextPage,
+} from "../actions/buttons/pagination-menu-action";
 import { professionMenuAction } from "../actions/buttons/profession-meu-action";
 import { semesterMenuAction } from "../actions/buttons/semester-meu-action";
 import { subjectMenuAction } from "../actions/buttons/subject-meu-action";
@@ -31,5 +35,8 @@ bot.on("callback_query:data", async (ctx) => {
   }
   if (callbackData.startsWith("next_page_")) {
     paginationMenuNextPage(ctx);
+  }
+  if (callbackData.startsWith("file_")) {
+    fileMenuAction(ctx);
   }
 });
