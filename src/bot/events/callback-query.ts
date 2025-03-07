@@ -8,6 +8,7 @@ import { professionMenuAction } from "../actions/buttons/profession-meu-action";
 import { semesterMenuAction } from "../actions/buttons/semester-meu-action";
 import { subjectMenuAction } from "../actions/buttons/subject-meu-action";
 import { universMenuAction } from "../actions/buttons/univers-menu-action";
+import { invoiceFile } from "../actions/invoice-file";
 import bot from "../bot";
 
 bot.on("callback_query:data", async (ctx) => {
@@ -38,5 +39,9 @@ bot.on("callback_query:data", async (ctx) => {
   }
   if (callbackData.startsWith("file_")) {
     fileMenuAction(ctx);
+  }
+
+  if (callbackData.startsWith("info_file_buy_")) {
+    invoiceFile(ctx);
   }
 });

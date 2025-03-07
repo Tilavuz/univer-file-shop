@@ -39,7 +39,7 @@ export const subjectMenuAction = async (ctx: Context) => {
         reply_markup: keyboard,
       });
 
-      await ctx.answerCallbackQuery(`${subject?.name}`);
+      await ctx.answerCallbackQuery(subject?.name ?? "answer callback query");
     }
   } catch (error) {
     console.error(error);

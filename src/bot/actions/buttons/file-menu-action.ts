@@ -14,32 +14,30 @@ export const fileMenuAction = async (ctx: Context) => {
 
     const fileSize = (file.file_size / (1024 * 1024)).toFixed(2);
 
-    ctx.reply(
-      `📂 *Mavzusi:* ${file?.title}
-      
-      📄 *Fayl nomi:* \`${file.file_name}\`
-      📏 *Hajmi:* \`${fileSize} MB\`
-      💰 *Narxi:* \`${file.price ?? 0} so'm\``,
-      {
-        parse_mode: "Markdown",
-        reply_markup: {
-          inline_keyboard: [
-            [
-              {
-                text: "👀 Ko'rish",
-                web_app: {
-                  url: `https://bluebird-fancy-painfully.ngrok-free.app/files/${file._id}`,
-                },
-              },
-              {
-                text: "💰 Sotib olish",
-                callback_data: `info_file_buy_${fileId}`,
-              },
-            ],
+    const message =
+      `<b>📂 Mavzusi:</b> ${file?.title}\n\n` +
+      `<b>📄 Fayl nomi:</b> <i>${file.file_name}</i>\n` +
+      `<b>📏 Hajmi:</b> <i>${fileSize} MB</i>\n` +
+      `<b>💰 Narxi:</b> <i>${file.price ?? 0} so'm</i>` +
+      `<b>💰 Sotilgan:</b> <i>${file.sold ?? 0}</i>`;
+
+    ctx.reply(message, {
+      parse_mode: "HTML",
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: "👀 Ko'rish",
+              url: `https://bluebird-fancy-painfully.ngrok-free.app/files/${file._id}`,
+            },
+            {
+              text: "💰 Sotib olish",
+              callback_data: `info_file_buy_${fileId}`,
+            },
           ],
-        },
-      }
-    );
+        ],
+      },
+    });
 
     ctx.answerCallbackQuery("File info");
   } catch (error) {

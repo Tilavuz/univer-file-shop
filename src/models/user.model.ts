@@ -14,8 +14,12 @@ const userSchema = new Schema<IUser>(
     },
     action: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
+    money: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );

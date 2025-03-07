@@ -16,7 +16,7 @@ export const universMenuAction = async (ctx: Context) => {
     ctx.reply(univer?.name, {
       reply_markup: buttons,
     });
-    ctx.answerCallbackQuery(univer?.name);
+    ctx.answerCallbackQuery(univer?.name ?? "univer name");
   } catch (error) {
     console.error(error);
     ctx.reply("Server error!");

@@ -18,7 +18,7 @@ export const professionMenuAction = async (ctx: Context) => {
     ctx.reply(profession?.name, {
       reply_markup: buttons,
     });
-    ctx.answerCallbackQuery(profession?.name);
+    ctx.answerCallbackQuery(profession?.name ?? "answer callback query");
   } catch (error) {
     console.error(error);
     ctx.reply("Server error!");
